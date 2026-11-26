@@ -1,0 +1,109 @@
+body[data-color-mode="protanopia"] {
+    --tema-principal: #193b67;
+    --tema-panel: #243d5a;
+    --tema-fondo: #f4f8ff;
+    --tema-superficie: #edf4ff;
+    --tema-secundario: #d5e6fb;
+    --tema-texto: #142641;
+    --tema-ayuda: #314964;
+    --tema-borde: #839bb9;
+    --tema-foco: #2468b1;
+    --tema-grafico: #1d5b99;
+}
+body[data-color-mode="deuteranopia"] {
+    --tema-principal: #422d64;
+    --tema-panel: #3c3052;
+    --tema-fondo: #faf7ff;
+    --tema-superficie: #f4edfc;
+    --tema-secundario: #e7d9f8;
+    --tema-texto: #2b203e;
+    --tema-ayuda: #524163;
+    --tema-borde: #9a89ad;
+    --tema-foco: #7045a3;
+    --tema-grafico: #63408f;
+}
+body[data-color-mode="tritanopia"] {
+    --tema-principal: #642d3d;
+    --tema-panel: #562d3b;
+    --tema-fondo: #fff8fa;
+    --tema-superficie: #f9eef3;
+    --tema-secundario: #edd8e4;
+    --tema-texto: #3b222c;
+    --tema-ayuda: #623b4c;
+    --tema-borde: #a98a98;
+    --tema-foco: #973e5a;
+    --tema-grafico: #873c5a;
+}
+
+body[data-color-mode]:not([data-color-mode="estandar"]) {
+    --verde: var(--tema-principal);
+    --panel: var(--tema-panel);
+    --claro: var(--tema-secundario);
+    --borde: var(--tema-borde);
+    color: var(--tema-texto);
+    background: var(--tema-fondo);
+}
+body[data-color-mode]:not([data-color-mode="estandar"]) :is(.cuenta-pagina, .panel-cuenta) {
+    --cuenta-fondo: var(--tema-panel);
+    --cuenta-tarjeta: var(--tema-secundario);
+    --cuenta-fila: var(--tema-superficie);
+    --cuenta-boton: var(--tema-principal);
+    --cuenta-secundario: var(--tema-fondo);
+    --cuenta-texto: var(--tema-texto);
+    --cuenta-ayuda: var(--tema-ayuda);
+}
+body[data-color-mode]:not([data-color-mode="estandar"]) :focus-visible {
+    outline: 3px solid var(--tema-foco);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px white;
+}
+body[data-color-mode]:not([data-color-mode="estandar"]) :is(
+    .cuenta summary, .boton-claro, .buscador input, .filtro-transito, .tarjeta,
+    .tarjeta-direccion, .tarjeta-resenas, .ficha, .tienda-tarjeta, .tienda-canje-dialogo,
+    .tienda-canje-alternativo, .dialogo-transito, .saldo-tienda, .mensaje-cuenta, .leaflet-popup-content-wrapper
+) {
+    background-color: var(--tema-superficie);
+    color: var(--tema-texto);
+    border-color: var(--tema-borde);
+}
+body[data-color-mode]:not([data-color-mode="estandar"]) :is(
+    .tarjeta small, .tarjeta p, .resumen p, .tienda-titulo p, .tienda-arte,
+    .tienda-canje-costo, .filtro-nombre small, #votos-detalle-aviso
+) { color: var(--tema-ayuda); }
+body[data-color-mode]:not([data-color-mode="estandar"]) :is(.resultados, .controles-mapa, .catalogo .categorias) {
+    background-color: var(--tema-fondo);
+}
+body[data-color-mode]:not([data-color-mode="estandar"]) .categorias a {
+    color: var(--tema-texto);
+    background-color: var(--tema-secundario);
+}
+body[data-color-mode]:not([data-color-mode="estandar"]) .categorias [aria-current="page"] {
+    color: white;
+    background-color: var(--tema-principal);
+    box-shadow: inset 0 0 0 1px white;
+}
+body[data-color-mode]:not([data-color-mode="estandar"]) :is(.tipos-mapa, .accesos-mapa) {
+    background-color: var(--tema-panel);
+}
+body[data-color-mode]:not([data-color-mode="estandar"]) :is(.boton[disabled], button[aria-disabled="true"]) {
+    opacity: 1;
+    background-color: var(--tema-secundario);
+    color: var(--tema-ayuda);
+    border: 1px dashed var(--tema-borde);
+}
+body[data-color-mode]:not([data-color-mode="estandar"]) :is(.tienda-arte, .identidad-cuenta) img {
+    filter: saturate(.65) contrast(1.15);
+}
+body[data-color-mode]:not([data-color-mode="estandar"]) .imagen-satelital { filter: saturate(.55) contrast(1.08); }
+body[data-color-mode]:not([data-color-mode="estandar"]) :is(.auth, .dialogo-transito, .tienda-canje-dialogo, .form-resena) :is(input, select, textarea) {
+    color: var(--tema-texto);
+    background-color: var(--tema-fondo);
+    border-color: var(--tema-borde);
+    accent-color: var(--tema-principal);
+}
+body[data-color-mode]:not([data-color-mode="estandar"]) .error {
+    color: #351f20;
+    background-color: #fff5ed;
+    border: 1px solid #765149;
+    border-inline-start-width: 4px;
+}

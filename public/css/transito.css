@@ -1,0 +1,121 @@
+.herramientas .boton { min-height: 32px; border-radius: 12px; }
+
+.panel-transito { padding: 12px 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+.panel-transito h2 { font-size: 1.75rem; }
+.panel-transito > p { color: #475e50; }
+.panel-transito fieldset { padding: 0; margin: 4px 0 14px; border: 0; display: grid; gap: 6px; }
+.panel-transito legend { padding: 0 0 6px; font-weight: 700; }
+.filtro-transito {
+    padding: 9px 12px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    border-radius: 12px;
+    background: #f0f5ed;
+    cursor: pointer;
+}
+.filtro-transito input { grid-area: 1 / 2; width: 52px; height: 26px; margin: 0; opacity: 0; cursor: pointer; }
+.filtro-transito > span {
+    grid-area: 1 / 2;
+    pointer-events: none;
+    text-align: center;
+    border-radius: 18px;
+    background: #e1ebe0;
+    padding: 3px 10px;
+    font-size: .82rem;
+}
+.filtro-transito input:checked + span { background: var(--verde); color: white; }
+.filtro-transito input:focus-visible + span { outline: 3px solid #34789a; outline-offset: 2px; }
+.panel-transito .boton { justify-content: flex-start; border-radius: 12px; }
+#estado-transito:empty { display: none; }
+.selector-aviso { padding: 8px; border-radius: 10px; background: #f0f5ed; }
+.selector-aviso button { margin-top: 5px; }
+.mapa.seleccionando-aviso { cursor: crosshair; }
+
+.dialogo-transito {
+    width: min(668px, calc(100% - 28px));
+    border: 0;
+    border-radius: 25px;
+    padding: clamp(16px, 4vw, 30px);
+    color: #192d22;
+    background: #f1f5ec;
+}
+.dialogo-transito::backdrop { background: #192d2260; }
+.dialogo-transito header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.dialogo-transito h2 { font-size: clamp(1.45rem, 5vw, 2.1rem); }
+.dialogo-transito .boton { border-radius: 12px; justify-content: flex-start; }
+.dialogo-transito form { display: grid; gap: 7px; margin-top: 18px; }
+.dialogo-transito label, #etiqueta-ubicacion-aviso { font-weight: 700; }
+.dialogo-transito select, .dialogo-transito textarea, .campo-ubicacion {
+    width: 100%;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    padding: .65rem;
+}
+.campo-ubicacion { text-align: left; }
+#detalle-aviso > p { margin-top: 12px; overflow-wrap: anywhere; }
+#votos-detalle-aviso { color: #305941; font-weight: 700; }
+#detalle-aviso > .boton { width: 100%; margin-top: 18px; }
+#detalle-aviso > .boton[hidden] { display: none; }
+.seleccionando-aviso .aviso-marcador { pointer-events: none; }
+.aviso-marcador {
+    display: grid;
+    place-items: center;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    color: white;
+    background: #22442f;
+    font-weight: 700;
+    box-shadow: 0 1px 4px #2226;
+}
+.aviso-marcador--concurrencia { background: #99410a; }
+.aviso-marcador--obras, .aviso-marcador--accidentes, .aviso-marcador--corte { background: #9e252b; }
+.aviso-marcador--obras { border-radius: 4px; }
+.aviso-marcador img { width: 15px; height: 15px; object-fit: contain; filter: brightness(0) invert(1); }
+
+body[data-color-mode="protanopia"] .aviso-marcador--concurrencia { background: #755614; }
+body[data-color-mode="protanopia"] .aviso-marcador--radares { background: #20626f; }
+body[data-color-mode="protanopia"] .aviso-marcador--accidentes { background: #532b79; }
+body[data-color-mode="deuteranopia"] .aviso-marcador--concurrencia { background: #774c0a; }
+body[data-color-mode="deuteranopia"] .aviso-marcador--radares { background: #185a82; }
+body[data-color-mode="deuteranopia"] .aviso-marcador--accidentes { background: #793450; }
+body[data-color-mode="tritanopia"] .aviso-marcador--concurrencia { background: #8b491e; }
+body[data-color-mode="tritanopia"] .aviso-marcador--radares { background: #30573d; }
+body[data-color-mode="tritanopia"] .aviso-marcador--accidentes { background: #53326d; }
+body:not([data-color-mode="estandar"]) .aviso-marcador--obras,
+body:not([data-color-mode="estandar"]) .aviso-marcador--corte { background: #353c4b; }
+
+.filtro-nombre { display: flex; align-items: center; gap: .5rem; }
+.filtro-nombre .aviso-marcador { width: 25px; height: 25px; flex: none; }
+.aviso-marcador--corte { border-radius: 4px 12px; }
+.aviso-marcador--accidentes { border-radius: 8px; }
+.aviso-marcador--radares { border-style: double; border-width: 3px; }
+
+.trazo-recorrido { stroke: #235374; }
+.aviso-recorrido { stroke: white; fill: #9e252b; }
+body[data-color-mode="protanopia"] .trazo-recorrido { stroke: #153d72; }
+body[data-color-mode="deuteranopia"] .trazo-recorrido { stroke: #503580; }
+body[data-color-mode="tritanopia"] .trazo-recorrido { stroke: #87442e; }
+body:not([data-color-mode="estandar"]) .aviso-recorrido { fill: #303c51; stroke-width: 3; }
+
+.muestra-concurrencia {
+    flex: 0 0 24px;
+    border-top: 4px dashed #ff7617;
+}
+.tramo-concurrencia { stroke: #ff7617; stroke-linecap: round; }
+body[data-color-mode="protanopia"] .tramo-concurrencia { stroke: #795008; }
+body[data-color-mode="deuteranopia"] .tramo-concurrencia { stroke: #855900; }
+body[data-color-mode="tritanopia"] .tramo-concurrencia { stroke: #8b3c35; }
+body[data-color-mode="protanopia"] .muestra-concurrencia { border-color: #795008; }
+body[data-color-mode="deuteranopia"] .muestra-concurrencia { border-color: #855900; }
+body[data-color-mode="tritanopia"] .muestra-concurrencia { border-color: #8b3c35; }
+.tramo-concurrencia:focus-visible { stroke-width: 9px; }
+.seleccionando-aviso .tramo-concurrencia { pointer-events: none; }
+.filtro-nombre small { display: block; font-weight: 400; color: #435e4c; }
+.fin-tramo:not([hidden]) { display: grid; gap: 7px; }
+#etiqueta-fin-aviso { font-weight: 700; }
+#opciones-eliminar-aviso { margin-top: 12px; }
+#opciones-eliminar-aviso summary { margin-bottom: 6px; color: #762d29; }

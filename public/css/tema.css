@@ -1,0 +1,93 @@
+html[data-tema="oscuro"] {
+    color-scheme: dark;
+    background: #102019;
+}
+
+html[data-tema="oscuro"] body {
+    --tema-fondo: #102019;
+    --tema-superficie: #1b2e25;
+    --tema-secundario: #263e31;
+    --tema-texto: #f0f5ee;
+    --tema-ayuda: #c1d2c4;
+    --tema-borde: #587263;
+    --tema-foco: #9de0ba;
+    --tema-principal: #315c45;
+    --tema-panel: #172d22;
+    --tema-grafico: #9ae3b8;
+    --verde: var(--tema-principal);
+    --panel: var(--tema-panel);
+    --claro: var(--tema-secundario);
+    --borde: var(--tema-borde);
+    --estrella-llena: #ffce82;
+    --estrella-vacia: #778d80;
+    color: var(--tema-texto);
+    background: var(--tema-fondo);
+}
+
+html[data-tema="oscuro"] body[data-color-mode="protanopia"] {
+    --tema-principal: #315579;
+    --tema-foco: #a6d1ff;
+    --tema-grafico: #a6d1ff;
+}
+html[data-tema="oscuro"] body[data-color-mode="deuteranopia"] {
+    --tema-principal: #614980;
+    --tema-foco: #dec0ff;
+    --tema-grafico: #dec0ff;
+}
+html[data-tema="oscuro"] body[data-color-mode="tritanopia"] {
+    --tema-principal: #793e50;
+    --tema-foco: #ffb8ca;
+    --tema-grafico: #ffb8ca;
+}
+
+html[data-tema="oscuro"] :is(.cuenta-pagina, .panel-cuenta) {
+    --cuenta-fondo: var(--tema-panel);
+    --cuenta-tarjeta: var(--tema-superficie);
+    --cuenta-fila: var(--tema-fondo);
+    --cuenta-boton: var(--tema-principal);
+    --cuenta-secundario: var(--tema-secundario);
+    --cuenta-texto: var(--tema-texto);
+    --cuenta-ayuda: var(--tema-ayuda);
+}
+
+html[data-tema="oscuro"] body :is(
+    .tarjeta, .tarjeta-direccion, .tarjeta-resenas, .ficha, .tienda-tarjeta, .saldo-tienda, .mensaje-cuenta,
+    .tienda-canje-dialogo, .tienda-canje-alternativo, .dialogo-transito, .filtro-transito, .estado-tipo-mapa,
+    .buscador input, input:not([type="checkbox"]), select, textarea, .cuenta summary,
+    .leaflet-popup-content-wrapper, .leaflet-popup-tip, .leaflet-bar a, .leaflet-control-attribution,
+    .aviso-mapa, .aviso-mapa-ruta, .foto-referencia, .herramientas span:not(:empty), .selector-aviso
+) {
+    background-color: var(--tema-superficie);
+    color: var(--tema-texto);
+    border-color: var(--tema-borde);
+}
+
+html[data-tema="oscuro"] :is(.resultados, .catalogo .categorias, .controles-mapa) { background-color: var(--tema-fondo); }
+html[data-tema="oscuro"] .controles-mapa { background: transparent; }
+@media (max-width: 700px) {
+    html[data-tema="oscuro"] .controles-mapa { background-color: var(--tema-fondo); }
+}
+
+html[data-tema="oscuro"] body :is(.boton-claro, .herramientas button, .herramientas #usuarios-demo, .catalogo .categorias a, .explorar .categorias a) {
+    background: var(--tema-secundario);
+    color: var(--tema-texto);
+}
+html[data-tema="oscuro"] body :is(.categorias, .actividades-turismo) :is([aria-current="page"], a:hover) {
+    background: var(--tema-principal);
+    color: white;
+    box-shadow: inset 0 0 0 1px var(--tema-borde);
+}
+html[data-tema="oscuro"] .buscador button img,
+html[data-tema="oscuro"] .cuenta summary img { filter: brightness(0) invert(1); }
+
+html[data-tema="oscuro"] body :is(
+    .tarjeta small, .tarjeta p, .resumen p, .sin-mapa-turismo, .filtro-nombre small, .panel-transito > p,
+    .tienda-titulo p, .tienda-arte, .tienda-canje-costo, .resena > span, #votos-detalle-aviso
+) { color: var(--tema-ayuda); }
+html[data-tema="oscuro"] .error { background: #4c2828; color: #ffe9e4; }
+html[data-tema="oscuro"] .filtro-transito input:not(:checked) + span { background: var(--tema-secundario); color: var(--tema-texto); }
+html[data-tema="oscuro"] #opciones-eliminar-aviso summary { color: #ffc4bb; }
+html[data-tema="oscuro"] :focus-visible { outline-color: var(--tema-foco); }
+html[data-tema="oscuro"] .mapa { background: #1a2b24; }
+html[data-tema="oscuro"] .mapa-base-raster { filter: grayscale(.4) invert(.86) hue-rotate(170deg); }
+html[data-tema="oscuro"] .leaflet-control-attribution a { color: #b5dcfc; }
